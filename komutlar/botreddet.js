@@ -1,7 +1,6 @@
 const config = require('../config.json')
 
 exports.run = (client, message, args) => {
-  if (message.author.hasPermissions('MANAGE_MESSAGES')) return;
   
   let sahipid = args.slice(0).join(' ');
   let botid = args.slice(1).join(' ');
@@ -13,7 +12,7 @@ exports.run = (client, message, args) => {
 
 message.react('✅')
   
-client.channels.get(config.log).send(`<@${sahipid}> adlı kişinin <@${botid} adlı botu reddedili! Sebebi: ${sebep} :X:`)
+client.channels.get(config.log).send(`<@${sahipid}> adlı kişinin <@${botid}> adlı botu reddedili! Sebebi: ${sebep} :X:`)
 client.users.get(sahipid).send(`<@${botid}> adlı botunuz reddedildi! Sebebi: ${sebep} :X:`)
 }
 
